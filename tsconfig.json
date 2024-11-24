@@ -19,7 +19,7 @@
     "jsx": "preserve",
     "incremental": true,
     "typeRoots": [
-      "./types",
+      "src/types",
       "./node_modules/@types"
     ],
     "plugins": [
@@ -38,7 +38,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "types/global.d.ts"
+    "src/types/global.d.ts"
   ],
   "exclude": [
     "node_modules"
