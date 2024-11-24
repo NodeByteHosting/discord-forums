@@ -1,39 +1,18 @@
 'use client';
 
-import { db } from "@/utils/pgClient";
 import { CheckCircleSolidIcon } from '@/components/icons/check-circle-solid'
-import React, { useEffect, useState } from 'react';
+import { fetcher } from '@/utils/fetcher';
 import Link from 'next/link'
+import useSWR from 'swr';
 
 export const MostHelpful = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { data: users, error } = useSWR('/api/users/most-helpful', fetcher);
 
-  useEffect(() => {
-    const fetchMostHelpfulUsers = async () => {
-      const users = await db.user.findMany({
-        select: {
-          id: true,
-          username: true,
-          avatarUrl: true,
-          answersCount: true,
-          isPublic: true,
-          snowflakeId: true,
-        },
-        orderBy: {
-          answersCount: 'desc',
-          id: 'desc'
-        },
-        take: 15
-      });
-      setUsers(users as any);
-      setLoading(false);
-    };
+  if (error) {
+    return <div>{error?.info?.message || error.message}</div>;
+  }
 
-    fetchMostHelpfulUsers();
-  }, []);
-
-  if (loading) {
+  if (!users) {
     return <div>Loading...</div>;
   }
 
