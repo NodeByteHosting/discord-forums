@@ -1,5 +1,5 @@
 ## NodeByte Discord Forums
-A simple yet stunning site used to show index threads from our Discord Server in the web.
+A simple yet stunning site used to index threads from our Discord Server to the Web.
 
 #### Proudly Hosted On
 ![vercel](./public//vercel.jpg)
