@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import plur from 'plur'
 import { buildPostTimeValues } from '@/utils/markdown/datetime'
+import Image from 'next/image'
 
 type PostProps = {
   id: string
@@ -35,10 +36,12 @@ export const Post = ({
         </p>
 
         <div className="mt-2 flex items-center space-x-2">
-          <img
+          <Image
             src={author.avatar}
             alt={`${author.username}'s avatar`}
             className="rounded-full w-5 h-5"
+            width={20}
+            height={20}
           />
           <div className="text-sm opacity-90 no-underline">
             {author.username} asked on{' '}

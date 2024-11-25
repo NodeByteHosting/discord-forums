@@ -1,5 +1,6 @@
 import { parseDiscordMessage } from '@/utils/markdown/discord'
 import { isVideoLink } from '@/utils/messages/video'
+import Image from 'next/image'
 
 export type Attachment = {
   id: string
@@ -39,10 +40,12 @@ export const MessageContent = async ({
                 controls
               ></video>
             ) : (
-              <img
+              <Image
                 src={attachment.url}
                 alt="Image"
                 className="max-w-full h-auto object-cover"
+                width={400}
+                height={400}
               />
             )}
           </div>

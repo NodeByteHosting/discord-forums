@@ -4,6 +4,7 @@ import 'highlight.js/styles/github-dark-dimmed.css'
 import { Attachment, MessageContent } from './content'
 import { IncognitoIcon } from '../icons/incognito'
 import { ShieldCheckIcon } from '../icons/shield-check'
+import Image from 'next/image'
 import Link from 'next/link'
 
 type MessageProps = {
@@ -37,10 +38,12 @@ export const Message = ({
       <div className="flex flex-row items-start pointer-events-none [&>*]:pointer-events-auto">
         <div className="flex justify-start items-start w-[50px] sm:w-[60px] shrink-0">
           {isFirstRow ? (
-            <img
+            <Image
               src={author.avatarUrl}
               alt="Avatar"
               className="w-10 h-10 rounded-full"
+              width={40}
+              height={40}
             />
           ) : (
             <time

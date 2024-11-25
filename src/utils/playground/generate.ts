@@ -1,11 +1,4 @@
-interface Thread {
-  title: string;
-  description: string;
-  tags: string[];
-  replies: number;
-  timeAgo: string;
-  avatar?: string; // Optional avatar URL for small icons/images
-}
+import { Thread } from "@/types/thread";
 
 export const generatePlayground = (threads: Thread[] = []): string => {
   if (!Array.isArray(threads) || threads.length === 0) {
@@ -13,7 +6,6 @@ export const generatePlayground = (threads: Thread[] = []): string => {
   }
 
   const width = 800;
-  const height = 600;
   const headerHeight = 60;
   const threadHeight = 90;
   const threadSpacing = 10;

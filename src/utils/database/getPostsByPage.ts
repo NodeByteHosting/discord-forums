@@ -1,6 +1,7 @@
 import { db } from "../pgClient";
+import { ExtendedPost } from "@/types/database";
 
-export const getPostsByPage = async (pageNumber: number) => {
+export const getPostsByPage = async (pageNumber: number): Promise<ExtendedPost[]> => {
     const limit = 20;
     const offset = (pageNumber - 1) * limit
 
@@ -24,7 +25,7 @@ export const getPostsByPage = async (pageNumber: number) => {
         },
     });
 
-    return posts.map((post: any) => ({
+    return posts.map((post) => ({
         ...post,
         hasAnswer: post.messages.length > 0,
         messagesCount: post.messages.length

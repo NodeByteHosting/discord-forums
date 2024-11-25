@@ -4,11 +4,11 @@ import { Analytics } from '@vercel/analytics/react'
 
 import './globals.css'
 import { GitHubIcon } from '../components/icons/github'
-import { NextIcon } from '../components/icons/next'
 import { DiscordIcon } from '../components/icons/discord'
 import { Metadata } from 'next'
 import { getBaseUrl } from '../utils/messages/urls'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               NodeByte Hosting
             </h1>
 
-            <a
+            <Link
               href="/"
               className="hover:opacity-75 text-white hover:no-underline transition-all duration-200 inline-flex items-center space-x-2"
             >
@@ -69,10 +69,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <span className="text-2xl font-bold tracking-tighter">
                 Discord Forums
               </span>
-            </a>
+            </Link>
 
             <div className="flex space-x-5">
-              <a
+              <Link
                 href="https://discord.gg/nodebyte"
                 target="_blank"
                 rel="noopener"
@@ -80,9 +80,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 className="hover:opacity-75 text-white transition-all duration-200"
               >
                 <DiscordIcon size={7} />
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="https://github.com/NodeByteHosting/discord-forums"
                 target="_blank"
                 rel="noopener"
@@ -90,7 +90,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 className="hover:opacity-75 text-white transition-all duration-200"
               >
                 <GitHubIcon size={7} />
-              </a>
+              </Link>
             </div>
           </div>
         </header>

@@ -2,6 +2,7 @@ import { LayoutWithSidebar } from '@/components/layouts/layout-with-sidebar';
 import ForumSVG from '@/components/playground/ForumPlayground';
 import { threads } from '@/utils/playground/threads';
 import Balancer from 'react-wrap-balancer';
+import { Thread } from '@/types/thread';
 import { ReactNode } from 'react';
 
 type HomeLayoutProps = { children: ReactNode };
@@ -37,7 +38,7 @@ export default function HomeLayout({ children }: HomeLayoutProps) {
             }}
           >
             <div style={{ padding: '20px', backgroundColor: '#202225', minHeight: '100vh', color: '#ffffff' }}>
-              <ForumSVG threads={threads as any} />
+              <ForumSVG threads={threads as Thread[]} />
             </div>
           </div>
         </div>

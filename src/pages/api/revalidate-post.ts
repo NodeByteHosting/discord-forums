@@ -21,7 +21,16 @@ export default async function handler(
   try {
     await Promise.all([res.revalidate('/'), res.revalidate(`/post/${postId}`)])
     res.json({ revalidated: true })
-  } catch (err) {
+  } catch (err: unknown) {
+
+    if (err instanceof Error) {
+      res.status(500).json({
+        status: "INTERNAL_ERROR",
+        message: `Revalidation failed: ${err.message}`,
+        code: 500
+      })
+    }
+
     res.status(500).json({ error: 'Error revalidating' })
   }
 }

@@ -1,7 +1,9 @@
 'use client';
 
+import { User } from '@/types/database';
 import { CheckCircleSolidIcon } from '@/components/icons/check-circle-solid'
 import { fetcher } from '@/utils/fetcher';
+import Image from 'next/image';
 import Link from 'next/link'
 import useSWR from 'swr';
 
@@ -18,13 +20,15 @@ export const MostHelpful = () => {
 
   return (
     <div className="mt-2 grid grid-cols-1 divide-y divide-neutral-800">
-      {users.map((user: any) => (
+      {users.map((user: User) => (
         <div key={user.id} className="flex justify-between py-2">
           <div className="flex space-x-2 items-center">
-            <img
+            <Image
               src={user.avatarUrl}
               alt="Avatar"
               className="w-4 h-4 rounded-full"
+              width={16}
+              height={16}
             />
             {user.isPublic ? (
               <Link
