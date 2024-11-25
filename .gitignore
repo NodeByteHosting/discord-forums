@@ -13,6 +13,11 @@
 # testing
 /coverage
 
+# VS Code
+.vscode/*
+/.vscode/*
+/.vscode
+
 # next.js
 /.next/
 /out/

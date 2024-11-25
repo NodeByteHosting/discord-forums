@@ -1,13 +1,15 @@
 {
-  "name": "bytebouncer-site",
+  "name": "@nodebyte/forum-site",
   "version": "1.0.0",
+  "license": "GPL-3.0-only",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "prepare": "husky"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
@@ -27,17 +29,30 @@
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@types/luxon": "^3.4.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.20",
+    "commitlint": "^19.6.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
     "postcss": "^8",
     "schema-dts": "^1.1.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
-  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
+  "lint-staged": {
+    "./src/**/*.{ts,tsx,js,jsx}": [
+      "next lint .",
+      "prettier -w ."
+    ],
+    "./src/**/*.{md,mdx,json,css,scss}": [
+      "prettier -w ."
+    ]
+  }
 }
