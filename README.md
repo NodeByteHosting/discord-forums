@@ -1,8 +1,6 @@
 ## NodeByte Discord Forums
 A simple yet stunning site used to show index threads from our Discord Server in the web.
 
-> **NOTE:** this website is heavily inspired by: [nextjs-forum](https://github.com/rafaelalmeidatk/nextjs-forum)
-
 #### Proudly Hosted On
 ![vercel](./public//vercel.jpg)
 
